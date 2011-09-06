@@ -1,0 +1,7 @@
+#!/bin/bash
+
+currentmp3=$(readlink -f /proc/$(printf "%u" `ps -C mpg321 o pid=`)/fd/3)  && cp $currentmp3 /home/dattaway/mp3favorits
+
+#currentmp3=$(readlink -f /proc/$(printf "%u" `ps -C mpg321 o pid=`)/fd/3) && echo $currentmp3 > /tmp/lastmp3 && if [ ! -d "/tmp/mp3rejects" ]; then mkdir /tmp/mp3rejects ;fi && mv $currentmp3 /tmp/mp3rejects && killall -2 mpg321
+
+# i=$(echo `ps aux | grep mpg321` | echo `cut -d " " -f 2`) && ls -al /proc/$i/fd/3 | cp `cut -d " " -f 11-` /home/dattaway/mp3favorites
