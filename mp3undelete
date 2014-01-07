@@ -5,5 +5,5 @@ j$=$(cat /tmp/lastmp3 | rev | echo `cut -d "/" -f 1`)
 currentmp3=$(i=$(echo `ps aux | grep mpg321` | echo `cut -d " " -f 2`) \
 && ls -al /proc/$i/fd/3 | rev | echo `cut -d " " -f -1` | rev) && echo \
 $currentmp3 > /tmp/lastmp3 && if [ ! -d "/tmp/mp3rejects" ]; then mkdir \
-/tmp/mp3rejects ;fi && mv $currentmp3 /tmp/mp3rejects && killall -2 \
+/tmp/mp3rejects ;fi && mv "$currentmp3" /tmp/mp3rejects && killall -2 \
 mpg321
